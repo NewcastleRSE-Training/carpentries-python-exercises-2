@@ -16,13 +16,13 @@ age = age - 20
 </summary>
 
 `mass` = 47.5, `age` does not exist   
-
+<br>
 `mass` = 47.5, `age` = 122    
-
+<br>
 `mass` = 95.0, `age` = 122  
- 
+ <br>
 `mass` = 95.0, `age` = 102   
-
+<br>
 </details>
 
 
@@ -44,12 +44,8 @@ Hopper Grace
 </details>
 
 ## The Data
-<br>
-<br>
 
 ![Data table](fig/dataTable.png)
-<br>
-<br>
 
 ![Data csv](fig/dataCSV.png)
 <br>
@@ -57,8 +53,7 @@ Hopper Grace
 ## Accessing data using indexes
 
 ![Data access](fig/accessData.PNG)
-<br>
-<br>
+
 
 <strong>Unlike</strong> Cartesian co-ordinates -
 [row, col] and  [0,0] is top left rather than bottom left.
@@ -95,9 +90,9 @@ What are the values of `element[:4]`, `element[4:]` and `element[:]`?
 </summary>
 
 element[:4] = oxyg
-
+<br>
 element[4:] = en
-
+<br>
 element[:] = oxygen
 
 </details>
@@ -125,7 +120,7 @@ Given those answers, explain what element[1:-1] does.
 </summary>
 
 element[1:-1] = xyge
-
+<br>
 Creates a substring from index 1 up to (not including) the final index, effectively removing the first and last letters from ‘oxygen’
 
 </details>
