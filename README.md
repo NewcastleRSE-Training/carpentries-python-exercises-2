@@ -1,1 +1,1 @@
-https://katecourt.github.io/carpentries-python/ 
+https://newcastlerse-training.github.io/carpentries-python-exercises-2/
