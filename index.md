@@ -60,7 +60,7 @@ Hopper Grace
 ![Slicing](fig/slicing.png)
 
 ## Accessing data across axis
-![across axis](fig/acrossAxis.png)
+![across axis](fig/acrossAxis.PNG)
 
 ## Exercise 2.1: Slicing strings
 
@@ -155,6 +155,16 @@ matplotlib.pyplot.show()
 Change this code to plot the standard deviation across all patients for each day. 
 (hint: `std()` is the numpy function we need here).
 
+<details>
+<summary>Solution
+</summary>
+
+![Solution 3.1](fig/ex3.1.PNG)
+
+</details>
+
+
+
 ## Exercise 4.1 Computing powers with loops
 Exponentiation is built into Python:
 ``` 5 ** 3``` gives `125`
@@ -165,13 +175,7 @@ Can you write a loop that would do the same? You may want to use `range`
 <summary>Solution
 </summary>
 
-result = 1
-
-for number in range(0, 3):
-
-    result = result * 5
-    
-print(result)
+![Solution 4.1](fig/ex4.1.PNG)
 
 </details>
 
@@ -183,15 +187,8 @@ Hint: create two variables, one for the new string and one for the original. Con
 <details>
 <summary>Solution
 </summary>
-newstring = '' 
 
-oldstring = 'Newton'
-
-for char in oldstring:
-
-    newstring = char + newstring
-    
-print(newstring)
+![Solution 4.2](fig/ex4.2.PNG)
 
 </details>
 
@@ -204,10 +201,8 @@ Hint: Before your for loop, create an empty list to add characters to like this:
 <summary>Solution
 </summary>
 
-my_list = []
-for char in 'hello':
-    my_list.append(char)
-print(my_list)
+![Solution 5.1](fig/ex5.1.PNG)
+
 </details>
 
 ## Exercise 5.2 Slicing from the end
@@ -250,7 +245,7 @@ primes[1::2]
 
 
 
-![comparisons](fig/comparisons.png)
+![comparisons](fig/comparisons.PNG)
 
 
 ## Exercise 7.1 How many paths?
@@ -277,7 +272,7 @@ What would be printed?
 <details>
 <summary>Solution
 </summary>
-C gets printed because other's aren't true
+C gets printed because none of the other statements are true
 </details>
 
 ## Exercise 7.2 What is truth?
@@ -344,7 +339,7 @@ print(fence('name', '*'))
 </details>
 
 ## Exercise 8.2 Return versus print
-Note that return and print are not interchangeable. print is a Python function that prints data to the screen. It enables us, users, see the data. return statement, on the other hand, makes data visible to the program. Let’s have a look at the following function:
+Note that return and print are not interchangeable. `print` is a Python function that prints data to the screen. It enables us to see the data. A `return` statement makes data visible to the program. Let’s have a look at the following function:
 
 ```python
 def add(a, b):
