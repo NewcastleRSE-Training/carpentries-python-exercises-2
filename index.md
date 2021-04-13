@@ -62,42 +62,87 @@ Hopper Grace
 ## Accessing data across axis
 ![across axis](fig/acrossAxis.png)
 
-## Exercise 2.1 Slicing strings
+## Exercise 2.1: Slicing strings
 
-```.env
+```
 element = 'oxygen'
 print('first three characters:', element[0:3])
 print('last three characters:', element[3:6])
 ```
 
-```.env
+```
 first three characters: oxy
 last three characters: gen
 ```
-What are the values of:
- a. `element[:4]`, `element[4:]` and `element[:]`?
- 
- b. `element[-1]` and `element[-2]`?
- 
- c. `element[1:-1]`
 
-Rewrite `element[3:6]` (last 3 characters) to work with any length string.
-
+What are the values of `element[:4]`, `element[4:]` and `element[:]`?
 
 <details>
 <summary>Solution
 </summary>
 
- a. `element[:4]` = oxyg, `element[4:]` = en, `element[:]` = oxygen
- 
- b. `element[-1]` = n `element[-2]` = e
- 
- c. `element[1:-1]` = xygen (index 1 up to but not including last index)
-
-`element[3:6]` becomes `element[-3:]`
+```
+element[:4] = oxyg
+element[4:] = en
+element[:] = oxygen
+```
 
 </details>
 
+What is `element[-1]` and `element[-2]`?
+ 
+<details>
+<summary>Solution
+</summary>
+
+```
+n
+e
+```
+
+</details>
+
+Given those answers, explain what element[1:-1] does.
+
+<details>
+<summary>Solution
+</summary>
+
+```
+element[1:-1] = xyge
+```
+Creates a substring from index 1 up to (not including) the final index, effectively removing the first and last letters from ‘oxygen’
+
+</details>
+
+Rewrite `element[3:6]` (last 3 characters) to work with any length string.
+How can we rewrite the slice for getting the last three characters of element (`element[3:6]`), so that it works even if we assign a different string to element? Test your solution with the following strings: `carpentry`, `clone`, `hi`.
+
+<details>
+<summary>Solution
+</summary>
+
+`element[3:6]` becomes `element[-3:]`
+
+```
+element = 'oxygen'
+print('last three characters:', element[-3:])
+element = 'carpentry'
+print('last three characters:', element[-3:])
+element = 'clone'
+print('last three characters:', element[-3:])
+element = 'hi'
+print('last three characters:', element[-3:])
+```
+
+```
+last three characters: gen
+last three characters: try
+last three characters: one
+last three characters: hi
+```
+
+</details>
 
 ## Exercise 3.1 Make your own plot
 We created a plot of min values like this:
@@ -208,3 +253,167 @@ primes[1::2]
 ![comparisons](fig/comparisons.png)
 
 
+## Exercise 7.1 How many paths?
+
+```python
+if 4 > 5:
+    print('A')
+elif 4 == 5:
+    print('B')
+elif 4 < 5:
+    print('C')
+```
+
+What would be printed?
+
+1. A
+
+2. B
+
+3. C
+
+4. B and c
+
+<details>
+<summary>Solution
+</summary>
+C gets printed because other's aren't true
+</details>
+
+## Exercise 7.2 What is truth?
+`True` and `False` are not the only values in Python that are true and false. Run the following code to see what happens.
+
+```python
+if '':
+    print('empty string is true')
+if 'word':
+    print('word is true')
+if []:
+    print('empty list is true')
+if [1, 2, 3]:
+    print('non-empty list is true')
+if 0:
+    print('zero is true')
+if 1:
+    print('one is true')
+```
+<details>
+<summary>Solution
+</summary>
+
+Zero, the empty string, and the empty list are considered false; all other numbers, strings, and lists are considered true.
+
+</details>
+
+
+## Exercise 7.3 Counting vowels
+Write a loop that counts the number of vowels in a character string. Test it on as many different words and sentences as you have time for.
+
+<details>
+<summary>Solution
+</summary>
+
+![7.2 Solution](fig/ex7.2.PNG)
+
+</details>
+
+
+## Episode 8 Creating Functions
+
+
+![Function demo](fig/functionDemo.PNG)
+
+
+## Exercise 8.1 Combining strings
+“Adding” two strings produces their concatenation: `a + b` is `ab` .  
+
+Write a function that takes 2 parameters , `original` and `wrapper` and returns a new string that contains the wrapper either side of the original. A call to your function should look like this:
+```python
+print(fence('name', '*'))
+```
+
+```python
+*name*
+```
+
+<details>
+<summary>Solution
+</summary>
+
+![Ex 8.1](fig/ex8.1.PNG)
+</details>
+
+## Exercise 8.2 Return versus print
+Note that return and print are not interchangeable. print is a Python function that prints data to the screen. It enables us, users, see the data. return statement, on the other hand, makes data visible to the program. Let’s have a look at the following function:
+
+```python
+def add(a, b):
+    print(a + b)
+```
+
+What will we see if we execute the following commands?
+
+```python
+A = add(7, 3)
+print(A)
+```
+
+
+<details>
+<summary>Solution
+</summary>
+Python will first execute the function add with a = 7 and b = 3, and, therefore, print 10. However, because function add does not have a line that starts with return (no return “statement”), it will, by default, return nothing which, in Python world, is called None. Therefore, A will be assigned to None and the last line (print(A)) will print None. As a result, we will see:
+
+10
+
+None
+
+</details>
+
+## Exercise 8.3 Mixing default and non-default parameters
+```python
+def numbers(one, two=2, three, four=4):
+    n = str(one) + str(two) + str(three) + str(four)
+    return n
+
+print(numbers(1, three=3))
+```
+
+Guess what will happen when this code is run:
+ 1. `1234`
+ 2.   `one2three4`
+ 3.  `1239`
+ 4.   `SyntaxError`
+ 
+ Try it out. The result might seem a bit cryptic, can you work out what it means?
+
+
+<details>
+<summary>Solution
+</summary>
+
+4. Syntax error. Parameters without default values must be given before any that do. (e.g. def numbers(one, three, two=2, four=4):)
+</details>
+
+
+```python
+def func(a, b=3, c=6):
+    print('a: ', a, 'b: ', b, 'c:', c)
+
+func(-1, 2)
+```
+
+
+What result is correct?
+1. `a: b: 3 c: 6`
+2.   `a: -1 b: 3 c: 6`
+3.  `a: -1 b: 2 c: 6`
+4.   `a: b: -1 c: 2`
+
+<details>
+<summary>Solution
+</summary>
+
+3. a and b are assigned and c is default.
+
+</details>
